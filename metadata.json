@@ -1,0 +1,7 @@
+{
+  "name": "StyleSnap - AI Hairstyle Consultant",
+  "description": "Upload your selfie and explore AI-generated hairstyle transformations with professional stylist descriptions.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
