@@ -21,7 +21,7 @@ export interface ValidationResult {
 
 export interface HairDescriptionSection {
   heading: string;
-  content: string;
+  content: string | string[];
 }
 
 export interface HairDescription {

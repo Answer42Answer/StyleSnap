@@ -11,8 +11,10 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [react()],
       define: {
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+        // OpenRouter API Key
+        'process.env.OPENROUTER_API_KEY': JSON.stringify(env.OPENROUTER_API_KEY),
+        // 保留旧的以兼容（可选）
+        'process.env.API_KEY': JSON.stringify(env.OPENROUTER_API_KEY),
       },
       resolve: {
         alias: {
