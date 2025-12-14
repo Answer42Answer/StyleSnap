@@ -35,7 +35,14 @@
   - 详细的分析卡片 (剪裁结构、色彩配方、打理建议、适合人群)。
   - 中英文双语界面支持。
 
-### 🛠️ 技术栈
+### �️ 效果演示
+
+<div align="center">
+  <img src="assets/feature_preview.png" width="45%" alt="AI 预览效果" />
+  <img src="assets/feature_card.png" width="45%" alt="专业分析卡" />
+</div>
+
+### �🛠️ 技术栈
 
 - **框架**: React 19 + TypeScript
 - **构建工具**: Vite
@@ -81,6 +88,18 @@
 - **图像生成**: 约 $0.80 / 会话 (使用 Gemini 3 Pro 生成 6 张)。
   - *提示: 如需降低成本，可修改 `openrouterService.ts` 减少生成数量。*
 
+### 🤝 支持作者
+
+如果你觉得这个小工具有趣，愿意成为我的**「创始粉丝」**吗？🌟  
+你的关注、点赞、转发，都是我持续创作的动力！
+
+| 平台 | 账号 | 备注 |
+| :--- | :--- | :--- |
+| 🎵 抖音 | **答案42** | AI / Tech / Design |
+| 📕 小红书 | **答案42** |  |
+| 💬 视频号 | **答案の42** |  |
+| 📺 Bilibili | **答案_42** |  |
+
 ---
 
 <h2 id="english-readme">🇺🇸 English README</h2>
@@ -108,7 +127,14 @@
   - Detailed Analysis Card (Cut, Color, Styling, Suitability).
   - Bilingual Support (English/Chinese).
 
-### 🛠️ Technology Stack
+### �️ Demo Gallery
+
+<div align="center">
+  <img src="assets/feature_preview.png" width="45%" alt="Preview Generation" />
+  <img src="assets/feature_card.png" width="45%" alt="Analysis Card" />
+</div>
+
+### �🛠️ Technology Stack
 
 - **Framework**: React 19 + TypeScript
 - **Build Tool**: Vite
@@ -154,7 +180,21 @@ This project uses a **Hybrid Architecture** to optimize costs:
 - **Image Generation**: ~$0.80 per session (6 images via Gemini 3 Pro). 
   - *Note: You can modify `openrouterService.ts` to reduce `numberOfVariations` if needed.*
 
+### 🤝 Support the Author
+
+If this tool helped you, would you like to become my **"Founding Fan"**? 🌟  
+Your follow, like, and share are the biggest motivation for me to keep creating!
+
+| Platform | Account | Note |
+| :--- | :--- | :--- |
+| 🎵 TikTok | **答案42** | AI / Tech / Design |
+| 📕 RedNote | **答案42** |  |
+| 💬 WeChat Channel | **答案の42** |  |
+| 📺 Bilibili | **答案_42** |  |
+
 ---
+
+
 
 ## 📄 License
 Designed for perfection.
