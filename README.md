@@ -38,8 +38,8 @@
 ### �️ 效果演示
 
 <div align="center">
-  <img src="assets/feature_preview.png" width="45%" alt="AI 预览效果" />
-  <img src="assets/feature_card.png" width="45%" alt="专业分析卡" />
+  <img src="https://raw.githubusercontent.com/Answer42Answer/StyleSnap/main/assets/feature_preview.png" width="45%" alt="AI 预览效果/Preview" />
+  <img src="https://raw.githubusercontent.com/Answer42Answer/StyleSnap/main/assets/feature_card.png" width="45%" alt="专业分析卡/Analysis Card" />
 </div>
 
 ### �🛠️ 技术栈
@@ -130,8 +130,8 @@
 ### �️ Demo Gallery
 
 <div align="center">
-  <img src="assets/feature_preview.png" width="45%" alt="Preview Generation" />
-  <img src="assets/feature_card.png" width="45%" alt="Analysis Card" />
+  <img src="https://raw.githubusercontent.com/Answer42Answer/StyleSnap/main/assets/feature_preview.png" width="45%" alt="Preview Generation" />
+  <img src="https://raw.githubusercontent.com/Answer42Answer/StyleSnap/main/assets/feature_card.png" width="45%" alt="Analysis Card" />
 </div>
 
 ### �🛠️ Technology Stack
