@@ -42,6 +42,11 @@
   <img src="https://raw.githubusercontent.com/Answer42Answer/StyleSnap/main/assets/feature_card.png" width="45%" alt="专业分析卡/Analysis Card" />
 </div>
 
+### 📺 视频演示
+
+[![Bilibili Demo](https://raw.githubusercontent.com/Answer42Answer/StyleSnap/main/assets/feature_preview.png)](https://www.bilibili.com/video/BV1nJmzBfETA/)
+> 点击图片或链接观看视频：[【有了它，再也不怕去理发了？】](https://www.bilibili.com/video/BV1nJmzBfETA/)
+
 ### �🛠️ 技术栈
 
 - **框架**: React 19 + TypeScript
@@ -128,13 +133,19 @@
   - Bilingual Support (English/Chinese).
 
 ### �️ Demo Gallery
+### ️ Demo Gallery
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/Answer42Answer/StyleSnap/main/assets/feature_preview.png" width="45%" alt="Preview Generation" />
   <img src="https://raw.githubusercontent.com/Answer42Answer/StyleSnap/main/assets/feature_card.png" width="45%" alt="Analysis Card" />
 </div>
 
-### �🛠️ Technology Stack
+### 📺 Video Demo
+
+[![StyleSnap Bilibili Demo](https://raw.githubusercontent.com/Answer42Answer/StyleSnap/main/assets/feature_preview.png)](https://www.bilibili.com/video/BV1nJmzBfETA/)
+> Click to watch on Bilibili: [StyleSnap Demo Video](https://www.bilibili.com/video/BV1nJmzBfETA/)
+
+### 🛠️ Technology Stack
 
 - **Framework**: React 19 + TypeScript
 - **Build Tool**: Vite
