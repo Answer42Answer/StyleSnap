@@ -24,7 +24,8 @@ const MODELS = {
 };
 
 const getApiKey = () => {
-  const apiKey = process.env.OPENROUTER_API_KEY;
+  // 优先使用用户输入的 Key (LocalStorage)，其次使用环境变量
+  const apiKey = localStorage.getItem('user_openrouter_key') || process.env.OPENROUTER_API_KEY;
   if (!apiKey) {
     throw new Error("OPENROUTER_API_KEY is missing");
   }

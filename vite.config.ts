@@ -3,23 +3,24 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
-    const env = loadEnv(mode, '.', '');
-    return {
-      server: {
-        port: 3000,
-        host: '0.0.0.0',
-      },
-      plugins: [react()],
-      define: {
-        // OpenRouter API Key
-        'process.env.OPENROUTER_API_KEY': JSON.stringify(env.OPENROUTER_API_KEY),
-        // 保留旧的以兼容（可选）
-        'process.env.API_KEY': JSON.stringify(env.OPENROUTER_API_KEY),
-      },
-      resolve: {
-        alias: {
-          '@': path.resolve(__dirname, '.'),
-        }
+  const env = loadEnv(mode, '.', '');
+  return {
+    base: '/StyleSnap/',
+    server: {
+      port: 3000,
+      host: '0.0.0.0',
+    },
+    plugins: [react()],
+    define: {
+      // OpenRouter API Key
+      'process.env.OPENROUTER_API_KEY': JSON.stringify(env.OPENROUTER_API_KEY),
+      // 保留旧的以兼容（可选）
+      'process.env.API_KEY': JSON.stringify(env.OPENROUTER_API_KEY),
+    },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, '.'),
       }
-    };
+    }
+  };
 });

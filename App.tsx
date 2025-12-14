@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Camera, Sparkles, RefreshCcw, Scissors, ArrowRight, Check, Loader2, KeyRound, Languages, Download, X, Upload, ArrowLeft, ChevronRight, User, Palette } from 'lucide-react';
+import { Camera, Sparkles, RefreshCcw, Scissors, ArrowRight, Check, Loader2, KeyRound, Languages, Download, X, Upload, ArrowLeft, ChevronRight, User, Palette, Settings } from 'lucide-react';
 import { AppStep, GeneratedImage, Gender, HairColor, HairDescription } from './types';
 import { validateFace, generateHairstyleImage, generateHairstyleDescription } from './services/openrouterService';
 import { Button } from './components/Button';
@@ -40,6 +40,8 @@ const App: React.FC = () => {
   // Key Selection State
   const [hasApiKey, setHasApiKey] = useState<boolean>(false);
   const [isCheckingKey, setIsCheckingKey] = useState<boolean>(true);
+  const [showSettings, setShowSettings] = useState(false);
+  const [userKey, setUserKey] = useState('');
 
   // App State
   const [language, setLanguage] = useState<Language>('zh');
@@ -84,9 +86,13 @@ const App: React.FC = () => {
   useEffect(() => {
     const checkKey = async () => {
       try {
-        // 检查 OpenRouter API Key 是否存在
-        const apiKey = process.env.OPENROUTER_API_KEY;
-        setHasApiKey(!!apiKey && apiKey.length > 0);
+        // 检查 OpenRouter API Key 是否存在 (Env or LocalStorage)
+        const envKey = process.env.OPENROUTER_API_KEY;
+        const localKey = localStorage.getItem('user_openrouter_key');
+
+        if (localKey) setUserKey(localKey);
+
+        setHasApiKey(!!(envKey && envKey.length > 0) || !!(localKey && localKey.length > 0));
       } catch (e) {
         console.error("Error checking API key:", e);
         setHasApiKey(false);
@@ -96,6 +102,19 @@ const App: React.FC = () => {
     };
     checkKey();
   }, []);
+
+  const saveUserKey = () => {
+    if (userKey.trim()) {
+      localStorage.setItem('user_openrouter_key', userKey.trim());
+      setHasApiKey(true);
+      setShowSettings(false);
+    } else {
+      localStorage.removeItem('user_openrouter_key');
+      // Re-evaluate
+      const envKey = process.env.OPENROUTER_API_KEY;
+      setHasApiKey(!!(envKey && envKey.length > 0));
+    }
+  };
 
   // Set default styles when gender changes
   useEffect(() => {
@@ -1303,14 +1322,64 @@ const App: React.FC = () => {
             </div>
             <span className="text-lg font-serif font-bold tracking-tight text-white group-hover:text-gold-400 transition-colors">{t.appTitle}</span>
           </div>
+          <div className="absolute top-4 right-4 z-50 flex gap-3">
+            <button
+              onClick={() => setShowSettings(true)}
+              className="p-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-white/70"
+              title="Settings / API Key"
+            >
+              <Settings className="w-5 h-5" />
+            </button>
+            <button
+              onClick={toggleLanguage}
+              className="p-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-white/70 flex items-center gap-1 text-sm font-medium"
+            >
+              <Languages className="w-4 h-4" />
+              {language === 'zh' ? 'EN' : '中'}
+            </button>
+          </div>
 
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center space-x-2 text-xs font-bold text-neutral-400 hover:text-white transition-all px-3 py-1.5 rounded-lg hover:bg-white/10 border border-transparent"
-          >
-            <Languages className="w-3 h-3" />
-            <span>{language === 'zh' ? 'EN' : '中'}</span>
-          </button>
+          {/* Settings Modal */}
+          {showSettings && (
+            <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+              <div className="w-full max-w-md bg-neutral-900 border border-white/10 rounded-2xl p-6 shadow-2xl relative">
+                <button
+                  onClick={() => setShowSettings(false)}
+                  className="absolute top-4 right-4 text-neutral-400 hover:text-white"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+
+                <h3 className="text-xl font-medium text-white mb-6 flex items-center gap-2">
+                  <Settings className="w-5 h-5 text-gold-400" />
+                  Settings
+                </h3>
+
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm text-neutral-400 mb-2">OpenRouter API Key</label>
+                    <div className="relative">
+                      <input
+                        type="password"
+                        value={userKey}
+                        onChange={(e) => setUserKey(e.target.value)}
+                        placeholder="sk-or-v1-..."
+                        className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-600 focus:outline-none focus:border-gold-500/50 transition-colors"
+                      />
+                      <KeyRound className="absolute right-3 top-3 w-5 h-5 text-neutral-600 pointer-events-none" />
+                    </div>
+                    <p className="text-xs text-neutral-500 mt-2">
+                      Key is stored locally in your browser. Get one at <a href="https://openrouter.ai/keys" target="_blank" className="text-gold-400 hover:underline">openrouter.ai</a>
+                    </p>
+                  </div>
+
+                  <Button onClick={saveUserKey} variant="primary" className="w-full justify-center mt-4">
+                    Save Configuration
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </header>
 
